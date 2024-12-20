@@ -1,0 +1,745 @@
+openapi: 3.1.0
+info:
+  title: School Schedule API
+  version: 0.1.0
+servers:
+  - url: /v1
+tags:
+  - name: Lesson
+  - name: Teacher
+  - name: Student
+  - name: Group
+  - name: Schedule Rule
+  - name: Day Schedule
+  - name: Week Schedule
+paths:
+  /lessons:
+    post:
+      tags:
+        - Lesson
+      summary: Create a new lesson
+      operationId: postLesson
+      requestBody:
+        $ref: '#/components/requestBodies/Lesson'
+      responses:
+        '201':
+          $ref: '#/components/responses/LessonCreated'
+    get:
+      tags:
+        - Lesson
+      summary: Get all lessons
+      operationId: getAllLessons
+      responses:
+        '200':
+          $ref: '#/components/responses/LessonArray'
+  /lessons/{id}:
+    parameters:
+      - $ref: '#/components/parameters/PathIntId'
+    put:
+      tags:
+        - Lesson
+      summary: Update an existing lesson
+      operationId: putLesson
+      requestBody:
+        $ref: '#/components/requestBodies/Lesson'
+      responses:
+        '200':
+          $ref: '#/components/responses/Lesson'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    get:
+      tags:
+        - Lesson
+      summary: Get an existing lesson
+      operationId: getLesson
+      responses:
+        '200':
+          $ref: '#/components/responses/Lesson'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Lesson
+      summary: Delete an existing lesson
+      operationId: deleteLesson
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /teachers:
+    post:
+      tags:
+        - Teacher
+      summary: Create a new teacher
+      operationId: postTeacher
+      requestBody:
+        $ref: '#/components/requestBodies/Teacher'
+      responses:
+        '201':
+          $ref: '#/components/responses/TeacherCreated'
+    get:
+      tags:
+        - Teacher
+      summary: Get all teachers
+      operationId: getAllTeachers
+      responses:
+        '200':
+          $ref: '#/components/responses/TeacherArray'
+  /teachers/{id}:
+    parameters:
+      - $ref: '#/components/parameters/PathIntId'
+    put:
+      tags:
+        - Teacher
+      summary: Update an existing teacher
+      operationId: putTeacher
+      requestBody:
+        $ref: '#/components/requestBodies/Teacher'
+      responses:
+        '200':
+          $ref: '#/components/responses/Teacher'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    get:
+      tags:
+        - Teacher
+      summary: Get an existing teacher
+      operationId: getTeacher
+      responses:
+        '200':
+          $ref: '#/components/responses/Teacher'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Teacher
+      summary: Delete an existing teacher
+      operationId: deleteTeacher
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /students:
+    post:
+      tags:
+        - Student
+      summary: Create a new student
+      operationId: postStudent
+      requestBody:
+        $ref: '#/components/requestBodies/Student'
+      responses:
+        '201':
+          $ref: '#/components/responses/StudentCreated'
+    get:
+      tags:
+        - Student
+      summary: Get all students
+      operationId: getAllStudents
+      responses:
+        '200':
+          $ref: '#/components/responses/StudentArray'
+  /students/{id}:
+    parameters:
+      - $ref: '#/components/parameters/PathIntId'
+    put:
+      tags:
+        - Student
+      summary: Update an existing student
+      operationId: putStudent
+      requestBody:
+        $ref: '#/components/requestBodies/Student'
+      responses:
+        '200':
+          $ref: '#/components/responses/Student'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    get:
+      tags:
+        - Student
+      summary: Get an existing student
+      operationId: getStudent
+      responses:
+        '200':
+          $ref: '#/components/responses/Student'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Student
+      summary: Delete an existing student
+      operationId: deleteStudent
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /groups:
+    get:
+      tags:
+        - Group
+      summary: Get all groups
+      operationId: getAllGroups
+      responses:
+        '200':
+          $ref: '#/components/responses/GroupArray'
+  /groups/{id}:
+    parameters:
+      - $ref: '#/components/parameters/PathStringId'
+    put:
+      tags:
+        - Group
+      summary: Create/Update a group
+      operationId: putGroup
+      requestBody:
+        $ref: '#/components/requestBodies/Group'
+      responses:
+        '201':
+          $ref: '#/components/responses/GroupCreated'
+        '200':
+          $ref: '#/components/responses/Group'
+    get:
+      tags:
+        - Group
+      summary: Get an existing group
+      operationId: getGroup
+      responses:
+        '200':
+          $ref: '#/components/responses/Group'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Group
+      summary: Delete an existing group
+      operationId: deleteGroup
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /schedule-rules:
+    post:
+      tags:
+        - Schedule Rule
+      summary: Create a new schedule rule
+      operationId: postScheduleRule
+      requestBody:
+        $ref: '#/components/requestBodies/ScheduleRule'
+      responses:
+        '201':
+          $ref: '#/components/responses/ScheduleRuleCreated'
+    get:
+      tags:
+        - Schedule Rule
+      summary: Get all schedule rules
+      operationId: getAllScheduleRules
+      responses:
+        '200':
+          $ref: '#/components/responses/ScheduleRuleArray'
+  /schedule-rules/{id}:
+    parameters:
+      - $ref: '#/components/parameters/PathIntId'
+    put:
+      tags:
+        - Schedule Rule
+      summary: Update an existing schedule rule
+      operationId: putScheduleRule
+      requestBody:
+        $ref: '#/components/requestBodies/ScheduleRule'
+      responses:
+        '200':
+          $ref: '#/components/responses/ScheduleRule'
+    get:
+      tags:
+        - Schedule Rule
+      summary: Get an existing schedule rule
+      operationId: getScheduleRule
+      responses:
+        '200':
+          $ref: '#/components/responses/ScheduleRule'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Schedule Rule
+      summary: Delete an existing schedule rule
+      operationId: deleteScheduleRule
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /day-schedule:
+    get:
+      tags:
+        - Day Schedule
+      summary: Get a day schedule
+      operationId: getDaySchedule
+      parameters:
+        - $ref: '#/components/parameters/QueryDate'
+        - $ref: '#/components/parameters/QueryConcerned'
+      responses:
+        '200':
+          $ref: '#/components/responses/DaySchedule'
+  /week-schedule:
+    get:
+      tags:
+        - Week Schedule
+      summary: Get a week schedule
+      operationId: getWeekSchedule
+      parameters:
+        - $ref: '#/components/parameters/QueryDate'
+        - $ref: '#/components/parameters/QueryConcerned'
+      responses:
+        '200':
+          $ref: '#/components/responses/WeekSchedule'
+components:
+  schemas:
+    LessonRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    LessonResponse:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          $ref: '#/components/schemas/IntId'
+        name:
+          type: string
+        description:
+          type: string
+    StudentRequest:
+      type: object
+      required:
+        - name
+        - lastName
+      properties:
+        name:
+          type: string
+        lastName:
+          type: string
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringId'
+    StudentResponse:
+      type: object
+      required:
+        - id
+        - name
+        - lastName
+      properties:
+        id:
+          $ref: '#/components/schemas/IntId'
+        name:
+          type: string
+        lastName:
+          type: string
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringId'
+    TeacherRequest:
+      type: object
+      required:
+        - name
+        - lastName
+      properties:
+        name:
+          type: string
+        lastName:
+          type: string
+        lessons:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntId'
+    TeacherResponse:
+      type: object
+      required:
+        - id
+        - name
+        - lastName
+      properties:
+        id:
+          $ref: '#/components/schemas/IntId'
+        name:
+          type: string
+        lastName:
+          type: string
+        lessons:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntId'
+    GroupRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        students:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntId'
+    GroupResponse:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          $ref: '#/components/schemas/StringId'
+        name:
+          type: string
+        students:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntId'
+    ScheduleRuleRequest:
+      type: object
+      required:
+        - startDate
+        - endDate
+        - day
+        - startTime
+        - endTime
+        - lesson
+        - teacher
+        - group
+        - room
+      properties:
+        startDate:
+          $ref: '#/components/schemas/Date'
+        endDate:
+          $ref: '#/components/schemas/Date'
+        day:
+          $ref: '#/components/schemas/Day'
+        startTime:
+          $ref: '#/components/schemas/Time'
+        endTime:
+          $ref: '#/components/schemas/Time'
+        lesson:
+          $ref: '#/components/schemas/IntId'
+        teacher:
+          $ref: '#/components/schemas/IntId'
+        group:
+          $ref: '#/components/schemas/StringId'
+        room:
+          $ref: '#/components/schemas/Room'
+    ScheduleRuleResponse:
+      type: object
+      required:
+        - id
+        - startDate
+        - endDate
+        - day
+        - startTime
+        - endTime
+        - lesson
+        - teacher
+        - group
+        - room
+      properties:
+        id:
+          $ref: '#/components/schemas/IntId'
+        startDate:
+          $ref: '#/components/schemas/Date'
+        endDate:
+          $ref: '#/components/schemas/Date'
+        day:
+          $ref: '#/components/schemas/Day'
+        startTime:
+          $ref: '#/components/schemas/Time'
+        endTime:
+          $ref: '#/components/schemas/Time'
+        #everyNWeek:
+        #type: integer
+        lesson:
+          $ref: '#/components/schemas/IntId'
+        teacher:
+          $ref: '#/components/schemas/IntId'
+        group:
+          $ref: '#/components/schemas/StringId'
+        room:
+          $ref: '#/components/schemas/Room'
+    Schedule:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - lesson
+        - teacher
+        - group
+        - room
+      properties:
+        startTime:
+          $ref: '#/components/schemas/Time'
+        endTime:
+          $ref: '#/components/schemas/Time'
+        lesson:
+          $ref: '#/components/schemas/IntId'
+        teacher:
+          $ref: '#/components/schemas/IntId'
+        group:
+          $ref: '#/components/schemas/StringId'
+        room:
+          type: integer
+    DaySchedule:
+      type: object
+      required:
+        - date
+      properties:
+        date:
+          $ref: '#/components/schemas/Date'
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schedule'
+    WeekSchedule:
+      type: object
+      required:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - saturday
+        - sunday
+      properties:
+        startDate:
+          $ref: '#/components/schemas/Date'
+        monday:
+          $ref: '#/components/schemas/DaySchedule'
+        tuesday:
+          $ref: '#/components/schemas/DaySchedule'
+        wednesday:
+          $ref: '#/components/schemas/DaySchedule'
+        thursday:
+          $ref: '#/components/schemas/DaySchedule'
+        friday:
+          $ref: '#/components/schemas/DaySchedule'
+        saturday:
+          $ref: '#/components/schemas/DaySchedule'
+        sunday:
+          $ref: '#/components/schemas/DaySchedule'
+    Room:
+      type: integer
+    Target:
+      oneOf:
+        - properties:
+            teacher:
+              $ref: '#/components/schemas/IntId'
+        - properties:
+            student:
+              $ref: '#/components/schemas/IntId'
+        - properties:
+            group:
+              $ref: '#/components/schemas/StringId'
+    Day:
+      type: string
+      enum:
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    Time:
+      type: string
+      format: time
+    Date:
+      type: string
+      format: date
+    IntId:
+      type: integer
+      minimum: 0
+    StringId:
+      type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+  parameters:
+    PathIntId:
+      in: path
+      name: id
+      required: true
+      schema:
+        $ref: '#/components/schemas/IntId'
+    PathStringId:
+      in: path
+      name: id
+      required: true
+      schema:
+        $ref: '#/components/schemas/StringId'
+    QueryDate:
+      in: query
+      name: date
+      description: Default to today date
+      schema:
+        $ref: '#/components/schemas/Date'
+    QueryConcerned:
+      in: query
+      name: concerned
+      required: true
+      schema:
+        $ref: '#/components/schemas/Target'
+  requestBodies:
+    Lesson:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LessonRequest'
+    Teacher:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeacherRequest'
+    Student:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StudentRequest'
+    Group:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GroupRequest'
+    ScheduleRule:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScheduleRuleRequest'
+  responses:
+    Lesson:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LessonResponse'
+    LessonArray:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/LessonResponse'
+    LessonCreated:
+      description: Lesson created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LessonResponse'
+    Teacher:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeacherResponse'
+    TeacherArray:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TeacherResponse'
+    TeacherCreated:
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeacherResponse'
+    Student:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StudentResponse'
+    StudentArray:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/StudentResponse'
+    StudentCreated:
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StudentResponse'
+    Group:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GroupResponse'
+    GroupArray:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/GroupResponse'
+    GroupCreated:
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GroupResponse'
+    ScheduleRule:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScheduleRuleResponse'
+    ScheduleRuleArray:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ScheduleRuleResponse'
+    ScheduleRuleCreated:
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScheduleRuleResponse'
+    DaySchedule:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DaySchedule'
+    WeekSchedule:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WeekSchedule'
+    NoContent:
+      description: No content
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
