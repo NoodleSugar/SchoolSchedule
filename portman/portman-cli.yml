@@ -1,0 +1,11 @@
+{
+  "local": "../openapi/api.yaml",
+  "output": "./tmp/collection.postman.json",
+  "envFile": "./env-portman",
+
+  "baseUrl": "http://localhost:8080/v1",
+
+  "includeTests": true,
+  "syncPostman": false,
+  "runNewman": true
+}

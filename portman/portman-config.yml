@@ -1,0 +1,78 @@
+version: 1
+tests:
+  contractTests:
+    - openApiOperation: "*::*"
+      statusSuccess:
+        enabled: true
+      responseTime:
+        enabled: true
+        maxMs: 500
+      contentType:
+        enabled: true
+      headersPresent:
+        enabled: true
+      jsonBody:
+        enabled: true
+      schemaValidation:
+        enabled: true
+    - openApiOperation: "POST::*"
+      statusCode:
+        enabled: true
+        code: 201
+    - openApiOperation: "DELETE::/*/{id}"
+      statusCode:
+        enabled: true
+        code: 204
+  variationTests:
+    - openApiOperation: "GET::/*/{id}"
+      openApiResponse: "404"
+      variations:
+        - name: "Resource does not exist"
+          overwrites:
+            - overwriteRequestPathVariables:
+                - key: "id"
+                  value: "{{newId}}"
+                  overwrite: true
+          tests:
+            contractTests:
+              - statusCode:
+                  enabled: true
+    - openApiOperation: "PUT::/*/{id}"
+      openApiResponse: "404"
+      variations:
+        - name: "Resource does not exist"
+          overwrites:
+            - overwriteRequestPathVariables:
+                - key: "id"
+                  value: "{{newId}}"
+                  overwrite: true
+          tests:
+            contractTests:
+              - statusCode:
+                  enabled: true
+    - openApiOperation: "DELETE::/*/{id}"
+      openApiResponse: "204"
+      variations:
+        - name: "No content"
+          overwrites:
+            - overwriteRequestPathVariables:
+                - key: "id"
+                  value: "{{newId}}"
+                  overwrite: true
+          tests:
+            contractTests:
+              - statusCode:
+                  enabled: true
+assignVariables:
+  - openApiOperation: "POST::/lessons"
+    collectionVariables:
+      - name: newId
+        responseBodyProp: id
+overwrites:
+  - openApiOperation: "*::/lessons/{id}"
+    overwriteRequestPathVariables:
+      - key: "id"
+        value: "{{newId}}"
+        overwrite: true
+globals:
+  stripResponseExamples: false
