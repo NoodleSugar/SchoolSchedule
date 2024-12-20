@@ -1,0 +1,16 @@
+{
+  "name": "Ubuntu Kotlin",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": {
+    "gitsafedir": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    "gitautocompl": "echo \"source /usr/share/bash-completion/completions/git\" >> ~/.bashrc"
+  },
+  "postStartCommand": {
+    "dockercomposeup": "docker compose up &"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2.12.0": {}
+  }
+}
