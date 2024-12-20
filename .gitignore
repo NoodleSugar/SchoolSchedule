@@ -1,0 +1,8 @@
+.gradle
+.idea
+.kotlin
+
+portman/.env-portman
+portman/tmp
+
+build
