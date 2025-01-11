@@ -12,5 +12,5 @@ fun LessonRequest.toEntity() = LessonEntity(
 fun LessonEntity.toResponse() = LessonResponse(
 	id = id!!,
 	name = name,
-	description = description,
+	description = description.ifEmpty { null },
 )
