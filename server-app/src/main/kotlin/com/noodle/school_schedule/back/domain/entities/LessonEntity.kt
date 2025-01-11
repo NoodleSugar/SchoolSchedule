@@ -1,4 +1,4 @@
-package com.noodle.school_schedule.domain.entities
+package com.noodle.school_schedule.back.domain.entities
 
 import jakarta.persistence.*
 

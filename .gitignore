@@ -1,8 +1,8 @@
-.gradle
-.idea
-.kotlin
+**/.gradle
+**/.idea
+**/.kotlin
+**/build
+**/generated
 
-portman/.env-portman
-portman/tmp
-
-build
+**/.env*
+**/tmp

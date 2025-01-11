@@ -1,4 +1,4 @@
-package com.noodle.school_schedule.services
+package com.noodle.school_schedule.back.services
 
 import com.noodle.school_schedule.openapi.models.LessonRequest
 import com.noodle.school_schedule.openapi.models.LessonResponse

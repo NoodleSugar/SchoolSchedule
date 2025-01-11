@@ -1,4 +1,4 @@
-package com.noodle.school_schedule.uri
+package com.noodle.school_schedule.back.uri
 
 import org.springframework.web.util.UriComponentsBuilder
 

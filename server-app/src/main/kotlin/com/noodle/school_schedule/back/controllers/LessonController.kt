@@ -1,12 +1,11 @@
-package com.noodle.school_schedule.controllers
+package com.noodle.school_schedule.back.controllers
 
 import com.noodle.school_schedule.openapi.controllers.LessonApi
 import com.noodle.school_schedule.openapi.models.LessonRequest
 import com.noodle.school_schedule.openapi.models.LessonResponse
-import com.noodle.school_schedule.services.LessonService
+import com.noodle.school_schedule.back.services.LessonService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
