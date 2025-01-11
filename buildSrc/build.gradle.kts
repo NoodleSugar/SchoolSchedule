@@ -19,11 +19,6 @@ dependencies {
 		"2.1.0"
 	)
 	implementation(
-		"org.jetbrains.kotlin.plugin.jpa",
-		"org.jetbrains.kotlin.plugin.jpa.gradle.plugin",
-		"2.1.0"
-	)
-	implementation(
 		"org.springframework.boot",
 		"org.springframework.boot.gradle.plugin",
 		"3.4.1"

@@ -7,7 +7,6 @@ version = "0.0.1-SNAPSHOT"
 plugins {
 	kotlin("jvm")
 	kotlin("plugin.spring")
-	kotlin("plugin.jpa")
 	id("io.spring.dependency-management")
 	id("com.avast.gradle.docker-compose")
 }
