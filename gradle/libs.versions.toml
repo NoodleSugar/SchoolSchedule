@@ -1,0 +1,49 @@
+[versions]
+kotlin = "2.1.0"
+springboot = "3.4.1"
+spring-dependency-management = "1.1.7"
+openapi-generator = "7.10.0"
+docker-compose = "0.17.12"
+docker = "9.4.0"
+swagger = "2.2.27"
+test-junit-launcher = "1.11.4"
+test-kotlin-fixture = "1.2.0"
+test-spring-mockk = "4.0.2"
+db-h2 = "2.2.220"
+
+[libraries]
+kotlin-jvm-plugin = { group = "org.jetbrains.kotlin.jvm", name = "org.jetbrains.kotlin.jvm.gradle.plugin", version.ref = "kotlin" }
+kotlin-spring-plugin = { group = "org.jetbrains.kotlin.plugin.spring", name = "org.jetbrains.kotlin.plugin.spring.gradle.plugin", version.ref = "kotlin" }
+kotlin-jpa-plugin = { group = "org.jetbrains.kotlin.plugin.jpa", name = "org.jetbrains.kotlin.plugin.jpa.gradle.plugin", version.ref = "kotlin" }
+springboot-plugin = { group = "org.springframework.boot", name = "org.springframework.boot.gradle.plugin", version.ref = "springboot" }
+spring-dependency-management-plugin = { group = "io.spring.gradle", name = "dependency-management-plugin", version.ref = "spring-dependency-management" }
+openapi-generator-plugin = { group = "org.openapitools", name = "openapi-generator-gradle-plugin", version.ref = "openapi-generator" }
+docker-compose-plugin = { group = "com.avast.gradle", name = "gradle-docker-compose-plugin", version.ref = "docker-compose" }
+docker-plugin = { group = "com.bmuschko", name = "gradle-docker-plugin", version.ref = "docker" }
+
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib" }
+
+springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+springboot-starter-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+springboot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-data-jpa = { module = "org.springframework.data:spring-data-jpa" }
+
+jackson = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+
+flyway-core = { module = "org.flywaydb:flyway-core" }
+flyway-postgresql = { module = "org.flywaydb:flyway-database-postgresql" }
+
+swagger-annotations = { module = "io.swagger.core.v3:swagger-annotations", version.ref = "swagger" }
+swagger-models = { module = "io.swagger.core.v3:swagger-models", version.ref = "swagger" }
+
+test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
+test-junit-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "test-junit-launcher" }
+test-kotlin-fixture = { module = "com.appmattus.fixture:fixture", version.ref = "test-kotlin-fixture" }
+test-spring-mockk = { module = "com.ninja-squad:springmockk", version.ref = "test-spring-mockk" }
+
+db-postgresql = { module = "org.postgresql:postgresql" }
+db-h2 = { module = "com.h2database:h2", version.ref = "db-h2" }
+

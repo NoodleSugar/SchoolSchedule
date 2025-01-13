@@ -1,3 +1,12 @@
 rootProject.name = "SchoolSchedule"
 
-include("environments", "server-app", "server-openapi")
+pluginManagement {
+	includeBuild("build-logic")
+}
+
+include(
+	"server-openapi",
+	"server-app",
+	"exec-env",
+	"portman",
+)

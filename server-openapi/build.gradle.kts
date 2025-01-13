@@ -1,26 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("server-openapi.conventions")
+	id("com.noodle.schoolschedule.server-openapi-conventions")
 }
 
-val apiInputDir = "${rootDir.path}/openapi/api.yaml"
 val apiOutputDir = "${projectDir.path}/generated"
 
-openApiValidate {
-	inputSpec.set(apiInputDir)
-}
-
 openApiGenerate {
-	inputSpec = apiInputDir
 	outputDir = apiOutputDir
 	generatorName = "kotlin-spring"
-
-	groupId = "$group"
-	packageName = "$group"
-	apiPackage = "$group.controllers"
-	modelPackage = "$group.models"
-	apiNameSuffix = "Controller"
 
 	configOptions.putAll(
 		mapOf(
@@ -48,14 +36,6 @@ openApiGenerate {
 			"string+date" to "java.time.LocalDate",
 		)
 	)
-}
-
-tasks.withType<KotlinCompile> {
-	dependsOn("openApiGenerate")
-}
-
-tasks.openApiGenerate {
-	dependsOn("openApiValidate")
 }
 
 sourceSets {
