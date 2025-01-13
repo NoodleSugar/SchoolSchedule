@@ -29,6 +29,7 @@ springboot-starter-jpa = { module = "org.springframework.boot:spring-boot-starte
 springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 springboot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+logback-core = { module = "ch.qos.logback:logback-core", version = { strictly = "1.5.16" } }
 spring-data-jpa = { module = "org.springframework.data:spring-data-jpa" }
 
 jackson = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
