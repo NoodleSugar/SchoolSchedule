@@ -1,12 +1,12 @@
-package com.noodle.school_schedule.back.services.impl
+package com.noodle.schoolschedule.back.services.impl
 
-import com.noodle.school_schedule.back.repositories.LessonRepository
-import com.noodle.school_schedule.back.domain.entities.LessonEntity
-import com.noodle.school_schedule.back.domain.mappings.toEntity
-import com.noodle.school_schedule.back.domain.mappings.toResponse
-import com.noodle.school_schedule.back.services.LessonService
-import com.noodle.school_schedule.openapi.models.LessonRequest
-import com.noodle.school_schedule.openapi.models.LessonResponse
+import com.noodle.schoolschedule.back.repositories.LessonRepository
+import com.noodle.schoolschedule.back.domain.entities.LessonEntity
+import com.noodle.schoolschedule.back.domain.mappings.toEntity
+import com.noodle.schoolschedule.back.domain.mappings.toResponse
+import com.noodle.schoolschedule.back.services.LessonService
+import com.noodle.schoolschedule.openapi.models.LessonRequest
+import com.noodle.schoolschedule.openapi.models.LessonResponse
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

@@ -1,16 +1,16 @@
-package com.noodle.school_schedule.back.services
+package com.noodle.schoolschedule.back.services
 
 import com.appmattus.kotlinfixture.decorator.nullability.NeverNullStrategy
 import com.appmattus.kotlinfixture.decorator.nullability.nullabilityStrategy
 import com.appmattus.kotlinfixture.decorator.optional.NeverOptionalStrategy
 import com.appmattus.kotlinfixture.decorator.optional.optionalStrategy
 import com.appmattus.kotlinfixture.kotlinFixture
-import com.noodle.school_schedule.back.assertions.assertMock
-import com.noodle.school_schedule.back.domain.entities.LessonEntity
-import com.noodle.school_schedule.back.domain.mappings.toResponse
-import com.noodle.school_schedule.back.repositories.LessonRepository
-import com.noodle.school_schedule.back.services.impl.LessonServiceImpl
-import com.noodle.school_schedule.openapi.models.LessonRequest
+import com.noodle.schoolschedule.back.assertions.assertMock
+import com.noodle.schoolschedule.back.domain.entities.LessonEntity
+import com.noodle.schoolschedule.back.domain.mappings.toResponse
+import com.noodle.schoolschedule.back.repositories.LessonRepository
+import com.noodle.schoolschedule.back.services.impl.LessonServiceImpl
+import com.noodle.schoolschedule.openapi.models.LessonRequest
 import io.mockk.every
 import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
@@ -100,7 +100,7 @@ class LessonServiceTests {
 
 		service.delete(id)
 
-		assertMock(mockRepo).method("deleteById").wasCalledWith(id)
+		com.noodle.schoolschedule.back.assertions.assertMock(mockRepo).method("deleteById").wasCalledWith(id)
 	}
 
 	private fun `Make repository save() return`(entity: LessonEntity) =

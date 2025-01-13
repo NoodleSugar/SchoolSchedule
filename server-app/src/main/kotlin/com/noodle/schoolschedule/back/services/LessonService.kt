@@ -1,7 +1,7 @@
-package com.noodle.school_schedule.back.services
+package com.noodle.schoolschedule.back.services
 
-import com.noodle.school_schedule.openapi.models.LessonRequest
-import com.noodle.school_schedule.openapi.models.LessonResponse
+import com.noodle.schoolschedule.openapi.models.LessonRequest
+import com.noodle.schoolschedule.openapi.models.LessonResponse
 
 interface LessonService {
 	fun create(request: LessonRequest): LessonResponse

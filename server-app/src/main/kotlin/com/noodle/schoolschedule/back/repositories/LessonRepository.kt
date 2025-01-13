@@ -1,6 +1,6 @@
-package com.noodle.school_schedule.back.repositories
+package com.noodle.schoolschedule.back.repositories
 
-import com.noodle.school_schedule.back.domain.entities.LessonEntity
+import com.noodle.schoolschedule.back.domain.entities.LessonEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
