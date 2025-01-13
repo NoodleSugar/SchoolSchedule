@@ -100,7 +100,7 @@ class LessonServiceTests {
 
 		service.delete(id)
 
-		com.noodle.schoolschedule.back.assertions.assertMock(mockRepo).method("deleteById").wasCalledWith(id)
+		assertMock(mockRepo).method("deleteById").wasCalledWith(id)
 	}
 
 	private fun `Make repository save() return`(entity: LessonEntity) =
