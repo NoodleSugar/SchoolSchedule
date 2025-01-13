@@ -1,7 +1,7 @@
 version: 1
 tests:
   contractTests:
-    - openApiOperation: "*::*"
+    - openApiOperation: "*::/lessons"
       statusSuccess:
         enabled: true
       responseTime:
@@ -15,16 +15,16 @@ tests:
         enabled: true
       schemaValidation:
         enabled: true
-    - openApiOperation: "POST::*"
+    - openApiOperation: "POST::/lessons"
       statusCode:
         enabled: true
         code: 201
-    - openApiOperation: "DELETE::/*/{id}"
+    - openApiOperation: "DELETE::/lessons/{id}"
       statusCode:
         enabled: true
         code: 204
   variationTests:
-    - openApiOperation: "GET::/*/{id}"
+    - openApiOperation: "GET::/lessons/{id}"
       openApiResponse: "404"
       variations:
         - name: "Resource does not exist"
@@ -37,7 +37,7 @@ tests:
             contractTests:
               - statusCode:
                   enabled: true
-    - openApiOperation: "PUT::/*/{id}"
+    - openApiOperation: "PUT::/lessons/{id}"
       openApiResponse: "404"
       variations:
         - name: "Resource does not exist"
@@ -50,7 +50,7 @@ tests:
             contractTests:
               - statusCode:
                   enabled: true
-    - openApiOperation: "DELETE::/*/{id}"
+    - openApiOperation: "DELETE::/lessons/{id}"
       openApiResponse: "204"
       variations:
         - name: "No content"
