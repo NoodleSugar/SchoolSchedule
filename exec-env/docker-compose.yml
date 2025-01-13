@@ -1,0 +1,40 @@
+services:
+  server-app:
+    image: server-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILE:?err}
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://0.0.0.0:8080/actuator/health" ]
+      start_period: 5s
+      retries: 5
+      timeout: 1s
+      interval: 3s
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=${DB_NAME:?err}
+      - POSTGRES_USER=${DB_USER:?err}
+      - POSTGRES_PASSWORD=${DB_PASS:?err}
+    volumes:
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    ports:
+      - "5432:5432"
+    restart: always
+    command: [ "postgres", "-c", "config_file=/etc/postgresql/postgresql.conf" ]
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ]
+      start_period: 1s
+      retries: 5
+      timeout: 1s
+      interval: 3s
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - "8888:8080"
