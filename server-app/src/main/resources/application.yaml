@@ -1,6 +1,12 @@
 spring:
   application:
-    name=${rootProject.name}
+    name: ${rootProject.name}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    locations: classpath:/db/migration
 
 management:
   endpoints:
