@@ -5,6 +5,7 @@ spring-dependency-management = "1.1.7"
 openapi-generator = "7.10.0"
 docker-compose = "0.17.12"
 docker = "9.4.0"
+logback = { strictly = "1.5.16" }
 swagger = "2.2.27"
 test-junit-launcher = "1.11.4"
 test-kotlin-fixture = "1.2.0"
@@ -29,7 +30,8 @@ springboot-starter-jpa = { module = "org.springframework.boot:spring-boot-starte
 springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 springboot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
-logback-core = { module = "ch.qos.logback:logback-core", version = { strictly = "1.5.16" } }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+logback-core = { module = "ch.qos.logback:logback-core", version.ref = "logback" }
 spring-data-jpa = { module = "org.springframework.data:spring-data-jpa" }
 
 jackson = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }

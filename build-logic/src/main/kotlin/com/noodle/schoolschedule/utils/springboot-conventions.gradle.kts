@@ -17,6 +17,7 @@ dependencies {
 	implementation(libs.springboot.starter.web)
 	implementation(libs.springboot.starter.jpa)
 	implementation(libs.springboot.starter.actuator)
+	implementation(libs.logback.classic)
 	implementation(libs.logback.core)
 	implementation(libs.spring.data.jpa)
 	implementation(libs.jackson)
