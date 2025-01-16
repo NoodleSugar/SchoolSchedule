@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: ${TEST_DB_DRIVER}
+    url: jdbc:${TEST_DB_PROTOCOL}://${TEST_DB_IP}:${TEST_DB_PORT}/${TEST_DB_NAME}
+    username: ${TEST_DB_USER}
+    password: ${TEST_DB_PASS}
+  flyway:
+    enabled: true
+    locations: classpath:/test/db/migration

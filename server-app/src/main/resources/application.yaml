@@ -1,0 +1,25 @@
+spring:
+  application:
+    name=${rootProject.name}
+
+management:
+  endpoints:
+    webm:
+      exposure:
+        include:
+          - env
+          - health
+          - shutdown
+    env:
+      show-values: always
+    health:
+      show-components: always
+      show-details: always
+      status:
+        http-mapping:
+          up: 207
+          unknown: 207
+          down: 503
+          out_of_service: 503
+    shutdown:
+      enabled: true
