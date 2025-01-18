@@ -28,7 +28,7 @@ class LessonServiceTests {
 	}
 
 	@Test
-	fun `When repository save() returns entity, create() should return response with entity content`() {
+	fun `If repository save() returns entity, create() should return response with entity content`() {
 		val entity = any<LessonEntity>()
 		`Make repository save() return`(entity)
 
@@ -38,7 +38,7 @@ class LessonServiceTests {
 	}
 
 	@Test
-	fun `When repository findAll() returns empty list, readAll() should return empty list`() {
+	fun `If repository findAll() returns empty list, readAll() should return empty list`() {
 		`Make repository findAll() return`(listOf())
 
 		val responseList = service.readAll()
@@ -47,7 +47,7 @@ class LessonServiceTests {
 	}
 
 	@Test
-	fun `When repository findAll() returns entity list, readAll() should return list containing a response per entity`() {
+	fun `If repository findAll() returns entity list, readAll() should return list containing a response per entity`() {
 		val entityList = any<List<LessonEntity>>()
 		`Make repository findAll() return`(entityList)
 
@@ -57,7 +57,7 @@ class LessonServiceTests {
 	}
 
 	@Test
-	fun `When repository findByIdOrNull() returns null, read() should return null`() {
+	fun `If repository findByIdOrNull() returns null, read() should return null`() {
 		`Make repository findByIdOrNull() return`(null)
 
 		val response = service.read(any<Int>())
@@ -66,7 +66,7 @@ class LessonServiceTests {
 	}
 
 	@Test
-	fun `When repository findByIdOrNull() returns entity, read() should return response with entity content`() {
+	fun `If repository findByIdOrNull() returns entity, read() should return response with entity content`() {
 		val entity = any<LessonEntity>()
 		`Make repository findByIdOrNull() return`(entity)
 
@@ -76,14 +76,14 @@ class LessonServiceTests {
 	}
 
 	@Test
-	fun `When repository existsById() returns false, update() should throw IllegalStateException`() {
+	fun `If repository existsById() returns false, update() should throw IllegalStateException`() {
 		`Make repository existsById() return`(false)
 
 		assertThrows<IllegalStateException> { service.update(any<Int>(), any<LessonRequest>()) }
 	}
 
 	@Test
-	fun `When repository existsById() returns true and save() returns entity, update() should return response with entity content`() {
+	fun `If repository existsById() returns true and save() returns entity, update() should return response with entity content`() {
 		val entity = any<LessonEntity>()
 		`Make repository existsById() return`(true)
 		`Make repository save() return`(entity)
