@@ -10,6 +10,7 @@ import com.noodle.schoolschedule.back.domain.entities.LessonEntity
 import com.noodle.schoolschedule.back.domain.mappings.toResponse
 import com.noodle.schoolschedule.back.repositories.LessonRepository
 import com.noodle.schoolschedule.back.services.impl.LessonServiceImpl
+import com.noodle.schoolschedule.back.util.AnyValue
 import com.noodle.schoolschedule.openapi.models.LessonRequest
 import io.mockk.every
 import io.mockk.mockk
@@ -29,10 +30,10 @@ class LessonServiceTests {
 
 	@Test
 	fun `If repository save() returns entity, create() should return response with entity content`() {
-		val entity = any<LessonEntity>()
+		val entity = AnyValue.of<LessonEntity>()
 		`Make repository save() return`(entity)
 
-		val response = service.create(any<LessonRequest>())
+		val response = service.create(AnyValue.of<LessonRequest>())
 
 		assertThat(response).isEqualTo(entity.toResponse())
 	}
@@ -48,7 +49,7 @@ class LessonServiceTests {
 
 	@Test
 	fun `If repository findAll() returns entity list, readAll() should return list containing a response per entity`() {
-		val entityList = any<List<LessonEntity>>()
+		val entityList = AnyValue.of<List<LessonEntity>>()
 		`Make repository findAll() return`(entityList)
 
 		val response = service.readAll()
@@ -60,17 +61,17 @@ class LessonServiceTests {
 	fun `If repository findByIdOrNull() returns null, read() should return null`() {
 		`Make repository findByIdOrNull() return`(null)
 
-		val response = service.read(any<Int>())
+		val response = service.read(AnyValue.of<Int>())
 
 		assertThat(response).isNull()
 	}
 
 	@Test
 	fun `If repository findByIdOrNull() returns entity, read() should return response with entity content`() {
-		val entity = any<LessonEntity>()
+		val entity = AnyValue.of<LessonEntity>()
 		`Make repository findByIdOrNull() return`(entity)
 
-		val response = service.read(any<Int>())
+		val response = service.read(AnyValue.of<Int>())
 
 		assertThat(response).isEqualTo(entity.toResponse())
 	}
@@ -79,16 +80,16 @@ class LessonServiceTests {
 	fun `If repository existsById() returns false, update() should throw IllegalStateException`() {
 		`Make repository existsById() return`(false)
 
-		assertThrows<IllegalStateException> { service.update(any<Int>(), any<LessonRequest>()) }
+		assertThrows<IllegalStateException> { service.update(AnyValue.of<Int>(), AnyValue.of<LessonRequest>()) }
 	}
 
 	@Test
 	fun `If repository existsById() returns true and save() returns entity, update() should return response with entity content`() {
-		val entity = any<LessonEntity>()
+		val entity = AnyValue.of<LessonEntity>()
 		`Make repository existsById() return`(true)
 		`Make repository save() return`(entity)
 
-		val response = service.update(any<Int>(), any<LessonRequest>())
+		val response = service.update(AnyValue.of<Int>(), AnyValue.of<LessonRequest>())
 
 		assertThat(response).isEqualTo(entity.toResponse())
 	}
@@ -96,7 +97,7 @@ class LessonServiceTests {
 	@Test
 	fun `delete() should call repository deleteById() with given id`() {
 		`Make repository delete() return nothing`()
-		val id = any<Int>()
+		val id = AnyValue.of<Int>()
 
 		service.delete(id)
 
