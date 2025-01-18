@@ -3,13 +3,13 @@ package com.noodle.schoolschedule.back.domain.entities
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "lesson")
+@Table(name = "`lesson`")
 data class LessonEntity(
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lesson_id_seq")
-	@SequenceGenerator(name = "lesson_id_seq", allocationSize = 1)
-	val id: Int? = null,
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "`lesson_id_seq`")
+	@SequenceGenerator(name = "`lesson_id_seq`", allocationSize = 1)
+	@Column(name = "`id`") val id: Int? = null,
 
-	val name: String,
-	val description: String,
+	@Column(name = "`name`") val name: String,
+	@Column(name = "`description`") val description: String,
 )
