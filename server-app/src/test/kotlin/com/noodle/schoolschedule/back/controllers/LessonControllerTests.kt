@@ -12,13 +12,13 @@ import com.noodle.schoolschedule.back.url.UrlFactory
 import com.noodle.schoolschedule.openapi.models.LessonRequest
 import com.noodle.schoolschedule.openapi.models.LessonResponse
 import io.mockk.every
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.*
+import kotlin.test.BeforeTest
+import kotlin.test.Test
 
 @WebMvcTest(LessonController::class)
 class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
@@ -45,7 +45,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	inner class `GIVEN service create() returns 'response'`() {
 		private val response = any<LessonResponse>()
 
-		@BeforeEach
+		@BeforeTest
 		fun `Make service create() return 'response'`() {
 			every { service.create(any()) } returns response
 		}
@@ -71,7 +71,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 
 	@Nested
 	inner class `GIVEN service readAll() returns 'empty list'`() {
-		@BeforeEach
+		@BeforeTest
 		fun `Make service readAll() return 'empty list'`() {
 			every { service.readAll() } returns listOf<LessonResponse>()
 		}
@@ -99,7 +99,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	inner class `GIVEN service readAll() returns 'response list'`() {
 		private val responseList = any<List<LessonResponse>>()
 
-		@BeforeEach
+		@BeforeTest
 		fun `Make service readAll() return 'response list'`() {
 			every { service.readAll() } returns responseList
 		}
@@ -125,7 +125,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 
 	@Nested
 	inner class `GIVEN service read() returns 'null'`() {
-		@BeforeEach
+		@BeforeTest
 		fun `Make service read() return a response`() {
 			every { service.read(any()) } returns null
 		}
@@ -144,7 +144,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	inner class `GIVEN service read() returns 'response'`() {
 		private val response = any<LessonResponse>()
 
-		@BeforeEach
+		@BeforeTest
 		fun `Make service read() return a response`() {
 			every { service.read(any()) } returns response
 		}
@@ -179,7 +179,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 
 	@Nested
 	inner class `GIVEN service update() throws 'IllegalStateException'`() {
-		@BeforeEach
+		@BeforeTest
 		fun `Make service update() return a response`() {
 			every { service.update(any(), any()) } throws IllegalStateException()
 		}
@@ -198,7 +198,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	inner class `GIVEN service update() returns 'response'`() {
 		private val response = any<LessonResponse>()
 
-		@BeforeEach
+		@BeforeTest
 		fun `Make service update() return a response`() {
 			every { service.update(any(), any()) } returns response
 		}
@@ -224,7 +224,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 
 	@Nested
 	inner class `GIVEN service delete() returns nothing`() {
-		@BeforeEach
+		@BeforeTest
 		fun `Make service delete() return nothing`() {
 			every { service.delete(any()) } answers {}
 		}
