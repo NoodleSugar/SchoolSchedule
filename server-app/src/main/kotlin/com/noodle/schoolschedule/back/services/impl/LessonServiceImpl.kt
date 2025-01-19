@@ -1,9 +1,9 @@
 package com.noodle.schoolschedule.back.services.impl
 
-import com.noodle.schoolschedule.back.repositories.LessonRepository
 import com.noodle.schoolschedule.back.domain.entities.LessonEntity
 import com.noodle.schoolschedule.back.domain.mappings.toEntity
 import com.noodle.schoolschedule.back.domain.mappings.toResponse
+import com.noodle.schoolschedule.back.repositories.LessonRepository
 import com.noodle.schoolschedule.back.services.LessonService
 import com.noodle.schoolschedule.openapi.models.LessonRequest
 import com.noodle.schoolschedule.openapi.models.LessonResponse

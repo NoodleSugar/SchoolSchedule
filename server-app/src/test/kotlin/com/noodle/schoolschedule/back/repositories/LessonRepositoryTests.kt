@@ -1,4 +1,4 @@
-package com.noodle.schoolschedule.back.repositories;
+package com.noodle.schoolschedule.back.repositories
 
 import com.noodle.schoolschedule.back.domain.entities.LessonEntity
 import com.noodle.schoolschedule.back.util.AnyValue
@@ -13,7 +13,7 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 
 @DataJpaTest
-class LessonReporitoryTests @Autowired constructor(
+class LessonRepositoryTests @Autowired constructor(
 	private val repository: LessonRepository,
 	private val entityManager: TestEntityManager,
 ) {
@@ -109,7 +109,7 @@ class LessonReporitoryTests @Autowired constructor(
 
 	@Nested
 	inner class `GIVEN repository contains list of entities` {
-		val entityList = AnyValue.of<List<LessonEntity>>().map { it.copy(id = null) }
+		private val entityList = AnyValue.of<List<LessonEntity>>().map { it.copy(id = null) }
 
 		@BeforeTest
 		fun `Make repository contain list of entities`() {

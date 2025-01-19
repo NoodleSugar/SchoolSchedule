@@ -1,10 +1,5 @@
 package com.noodle.schoolschedule.back.services
 
-import com.appmattus.kotlinfixture.decorator.nullability.NeverNullStrategy
-import com.appmattus.kotlinfixture.decorator.nullability.nullabilityStrategy
-import com.appmattus.kotlinfixture.decorator.optional.NeverOptionalStrategy
-import com.appmattus.kotlinfixture.decorator.optional.optionalStrategy
-import com.appmattus.kotlinfixture.kotlinFixture
 import com.noodle.schoolschedule.back.assertions.assertMock
 import com.noodle.schoolschedule.back.domain.entities.LessonEntity
 import com.noodle.schoolschedule.back.domain.mappings.toResponse
@@ -22,11 +17,6 @@ import kotlin.test.Test
 class LessonServiceTests {
 	private val mockRepo = mockk<LessonRepository>()
 	private val service = LessonServiceImpl(mockRepo)
-	private val any = kotlinFixture {
-		nullabilityStrategy(NeverNullStrategy)
-		optionalStrategy(NeverOptionalStrategy)
-		filter<Int> { filter { it >= 0 } }
-	}
 
 	@Test
 	fun `If repository save() returns entity, create() should return response with entity content`() {

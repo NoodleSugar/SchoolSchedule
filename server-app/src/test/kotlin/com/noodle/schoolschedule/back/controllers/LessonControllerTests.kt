@@ -32,7 +32,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service create() returns 'response'`() {
+	inner class `GIVEN service create() returns 'response'` {
 		private val response = AnyValue.of<LessonResponse>()
 
 		@BeforeTest
@@ -60,10 +60,10 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service readAll() returns 'empty list'`() {
+	inner class `GIVEN service readAll() returns 'empty list'` {
 		@BeforeTest
 		fun `Make service readAll() return 'empty list'`() {
-			every { service.readAll() } returns listOf<LessonResponse>()
+			every { service.readAll() } returns listOf()
 		}
 
 		@Test
@@ -86,7 +86,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service readAll() returns 'response list'`() {
+	inner class `GIVEN service readAll() returns 'response list'` {
 		private val responseList = AnyValue.of<List<LessonResponse>>()
 
 		@BeforeTest
@@ -114,7 +114,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service read() returns 'null'`() {
+	inner class `GIVEN service read() returns 'null'` {
 		@BeforeTest
 		fun `Make service read() return a response`() {
 			every { service.read(any()) } returns null
@@ -131,7 +131,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service read() returns 'response'`() {
+	inner class `GIVEN service read() returns 'response'` {
 		private val response = AnyValue.of<LessonResponse>()
 
 		@BeforeTest
@@ -168,7 +168,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service update() throws 'IllegalStateException'`() {
+	inner class `GIVEN service update() throws 'IllegalStateException'` {
 		@BeforeTest
 		fun `Make service update() return a response`() {
 			every { service.update(any(), any()) } throws IllegalStateException()
@@ -185,7 +185,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service update() returns 'response'`() {
+	inner class `GIVEN service update() returns 'response'` {
 		private val response = AnyValue.of<LessonResponse>()
 
 		@BeforeTest
@@ -213,7 +213,7 @@ class LessonControllerTests(@Autowired private val mockMvc: MockMvc) {
 	}
 
 	@Nested
-	inner class `GIVEN service delete() returns nothing`() {
+	inner class `GIVEN service delete() returns nothing` {
 		@BeforeTest
 		fun `Make service delete() return nothing`() {
 			every { service.delete(any()) } answers {}
